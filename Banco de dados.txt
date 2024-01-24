@@ -1,0 +1,29 @@
+create database motorcode;
+
+use  motorcode;
+
+create table login(
+id_usuario int (11) unsigned not null auto_increment,
+Nome_completo varchar (50) not null,
+Email varchar (50) not null,
+Senha varchar (50) not null,
+Numero_telefone varchar (15) not null,
+CPF varchar (11) not null,
+constraint pk_user primary key (id_usuario)
+);
+
+create table cadastro_veiculo(
+id_veiculo int (11) unsigned not null auto_increment,
+Marca varchar (50) not null,
+Modelo varchar (50) not null,
+Categoria varchar (50) not null,
+Preco varchar (50) not null,
+Descricao varchar (150) not null,
+Ano varchar (50) not null,
+Cambio varchar (50) not null,
+TipoCombustivel varchar (50) not null,
+Cor varchar (50) not null,
+KmRodado varchar (50) not null,
+`image` varchar(55) NOT NULL,
+constraint pk_user primary key (id_veiculo)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;

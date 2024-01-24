@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Scroll Effect</title>
+</head>
+<style>
+.div-com-animacao {
+  visibility: hidden;
+  animation: aparecer 2s ease infinite;
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+</style>
+<body>
+    <div class="div-com-animacao">
+        Olá, mundo!
+      </div>
+      
+
+  <script>
+// Código JavaScript
+document.addEventListener("scroll", function() {
+  // Verifica se a div está visível na tela
+  if (document.querySelector(".div-com-animacao").getBoundingClientRect().top < window.innerHeight) {
+    // Mostra a div
+    document.querySelector(".div-com-animacao").style.visibility = "visible";
+  }
+});
+
+  </script>
+
+
+
+</body>
+</html>
