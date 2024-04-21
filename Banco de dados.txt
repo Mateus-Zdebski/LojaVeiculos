@@ -1,29 +1,111 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 06-Dez-2023 às 01:26
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 create database motorcode;
+use motorcode;
 
-use  motorcode;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-create table login(
-id_usuario int (11) unsigned not null auto_increment,
-Nome_completo varchar (50) not null,
-Email varchar (50) not null,
-Senha varchar (50) not null,
-Numero_telefone varchar (15) not null,
-CPF varchar (11) not null,
-constraint pk_user primary key (id_usuario)
-);
+--
+-- Banco de dados: `motorcode`
+--
 
-create table cadastro_veiculo(
-id_veiculo int (11) unsigned not null auto_increment,
-Marca varchar (50) not null,
-Modelo varchar (50) not null,
-Categoria varchar (50) not null,
-Preco varchar (50) not null,
-Descricao varchar (150) not null,
-Ano varchar (50) not null,
-Cambio varchar (50) not null,
-TipoCombustivel varchar (50) not null,
-Cor varchar (50) not null,
-KmRodado varchar (50) not null,
-`image` varchar(55) NOT NULL,
-constraint pk_user primary key (id_veiculo)
-)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cadastro_veiculo`
+--
+
+CREATE TABLE `cadastro_veiculo` (
+  `id_veiculos` int(11) UNSIGNED NOT NULL,
+  `Marca` varchar(50) NOT NULL,
+  `Modelo` varchar(50) NOT NULL,
+  `Categoria` varchar(50) NOT NULL,
+  `Preco` varchar(50) NOT NULL,
+  `Descricao` varchar(4000) NOT NULL,
+  `Ano` varchar(50) NOT NULL,
+  `Cambio` varchar(50) NOT NULL,
+  `TipoCombustivel` varchar(50) NOT NULL,
+  `Cor` varchar(50) NOT NULL,
+  `KmRodado` varchar(50) NOT NULL,
+  `imagem1` varchar(255) NOT NULL,
+  `imagem2` varchar(255) NOT NULL,
+  `imagem3` varchar(255) NOT NULL,
+  `imagem4` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `cadastro_veiculo`
+--
+
+INSERT INTO `cadastro_veiculo` (`id_veiculos`, `Marca`, `Modelo`, `Categoria`, `Preco`, `Descricao`, `Ano`, `Cambio`, `TipoCombustivel`, `Cor`, `KmRodado`, `imagem1`, `imagem2`, `imagem3`, `imagem4`) VALUES
+(1, 'Audi', 'Q5', 'SUV ', '397.990,00', 'O Audi Q5 é o carro mais vendido da marca há algum tempo e é oferecido em todos os tipos de configurações, desde o modelo básico até um híbrido e o SQ5 de alto desempenho. Só faria sentido, então, que a Audi também o oferecesse em estilo cupê. O Audi Q5 Sportback é um SUV tipo cupê na mesma linha do BMW X4, e pega todas as peças boas do Q5 e adiciona um pouco de estilo. Apesar da linha do teto inclinada, ainda possui uma área de carga de tamanho generoso. O Sportback possui um motor turbo de quatro cilindros de 2,0 litros e um sistema híbrido moderado que oferece 261 cavalos de potência decentes e 273 lb-pés de torque, tornando-o mais potente que o BMW equivalente. A entrega de potência é vigorosa e o estilo é atraente. Falta um pouco de entusiasmo na experiência de dirigir, especialmente quando você considera seu estilo esportivo e rival da BMW, e também é quase US$ 7.000 mais caro que o Q5 normal. Se essas desvantagens não te incomodam, ainda há muito o que gostar aqui, e nesta análise do Audi Q5 Sportback 2023 descobrimos exatamente qual é o seu segredo.', '2023 ', 'Automatico', 'Gasolina', 'Azul ', '0 ', '919866.jpg', '919739.jpg', '919747.jpg', '919744.jpg'),
+(2, 'Audi', 'A3', 'Sedan', '279.990,00', 'O A3 é o menor Audi disponível nos EUA e, embora a versão hatchback possa ter desaparecido localmente há algum tempo, a versão sedã seguiu em frente. No ano passado, um modelo totalmente novo foi introduzido para competir contra outros alemães subcompactos, como o BMW Série 2 Gran Coupe e o Mercedes-Benz CLA-Class. Porém, ele fica um pouco aquém em termos de desempenho, com apenas 201 cavalos de potência e 221 lb-pés de torque. Mas, com um sistema híbrido moderado de 48 volts para auxiliar, é uma das opções com maior eficiência de combustível do segmento. Combinado com uma gama decente de recursos padrão, uma cabine bem construída e um estilo atraente, isso o torna uma proposta de grande valor.', '2023 ', 'Automatico', 'Gasolina', 'Azul ', '0 ', '907500.jpg', '907479.jpg', '907480.jpg', '907461.jpg'),
+(3, 'Audi', 'Q8', 'SUV ', '669.990,00', 'Seria injusto classificar o novo Audi Q8 cupê SUV 2023 como um Q7 com chapéu de festa, mas esse é o caso. Utilizando a plataforma MLB Evo do Grupo VW, ele e o Q7 compartilham seus genes com seus primos corporativos Porsche Cayenne, Bentley Bentayga e Lamborghini Urus. Embora o ajuste do chassi do Q7 seja mais sensato do que um escultor de curvas esportivo, o Q8 é uma variante cupê-SUV mais esportiva projetada para rivalizar com o BMW X6 e o ​​Mercedes-Benz GLE Coupe com aparência mais agressiva e características de manuseio mais esportivas. Embora as variantes S e RS tragam o verdadeiro poder de fogo, na forma básica, o desempenho do Q8 não está no topo da classe, apesar de um V6 a gasolina de 335 cavalos com 369 lb-pés de torque, uma transmissão automática de oito velocidades e um 48 -volt sistema híbrido suave. O Q8 se destaca por ser um carro mais prático que o rival médio, com mais espaço para a cabeça no banco traseiro e um porta-malas generoso.', '2023 ', 'Automatico', 'Gasolina', 'Ouro', '0 ', '1056254.jpg', '682135.jpg', '682137.jpg', '682153.jpg'),
+(4, 'Audi', 'R8 Coupe', 'esportivo', '1.549.000,00', 'Quer você seja fã da marca ou não, a Audi constrói alguns dos carros de desempenho mais atraentes do mercado. Do RS3 ao RS6 Avant, há algo para todos, mas é o Audi R8 Coupe que representa o auge do desenvolvimento da Audi Sport.\r\n\r\nO R8 existe desde 2006 e atualmente está em sua segunda geração. Mas em todas as iterações, tornou-se sinónimo de condução diária, alcançando um equilíbrio entre desempenho, conforto e luxo. Sob o capô respira um V10 de 5,2 litros naturalmente aspirado com potências que variam de 562 cavalos de potência na versão Performance com tração traseira a 602 cv no novo RWD GT ou no modelo AWD quattro. Esse V10 também não vem de origens humildes, mas é compartilhado com o Lamborghini Huracan, assim como a plataforma na qual o R8 se baseia. O segmento de carros esportivos e supercarros está repleto de competição acirrada, abrangendo tudo, desde o Porsche 911 Turbo ao Mercedes-AMG GT, e até mesmo o Ferrari F8 Tributo e o McLaren 720S. Um dinossauro arcaico sem turboalimentação não deveria poder viver em tal companhia. E, no entanto, o R8 ainda é tão inebriante agora como era em 2006. Talvez ainda mais.', '2023 ', 'Automatico', 'Gasolina', 'Branco', '0 ', '1059331.jpg', '1059342.jpg', '1059354.jpg', '988970.jpg'),
+(5, 'Bentley', 'Batur', 'esportivo', '13.500.000,00', 'Não é sempre que um cupê chega como sucessor de um conversível, mas é isso que o novo Bentley Batur representa para o Bacalar. O Bacalar relançou a construção de carrocerias na divisão Mulliner da marca, e o ultra-exclusivo Batur dá continuidade a essa tradição.\r\n\r\nO Batur é uma raridade porque é movido pelo W12 mais potente da marca - um motor de outra época - mas antecipa a linguagem de design dos próximos veículos elétricos a bateria da Bentley. Em essência, o Batur preenche a lacuna entre o passado e o futuro da Bentley, e faz isso como um primeiro passo em direção ao adeus final da icônica usina. Se formos honestos, existem maneiras piores de viver o momento presente do que com um grand tourer W12 de 730 cavalos.', '2023 ', 'Automatico', 'Gasolina', 'Branco', '0 ', '1030017.jpg', '1030015.jpg', '1030013.jpg', '1030037.jpg'),
+(6, 'Bentley ', 'Bentayga Hybrid', 'SUV ', '2.000.000,00', 'Competir com empresas como a Rolls-Royce não é algo fácil, e a Bentley já faz isso há muito tempo; mas enquanto a Rolls-Royce aparentemente apostou tudo na sua estratégia de passar imediatamente para a eletrificação, a Bentley está a adotar uma abordagem mais ponderada. Digite o Bentley Bentayga Híbrido. A respeitada marca britânica lançou o SUV híbrido em 2019 e, a julgar pelo fato de que a linha 2023 do Bentayga Hybrid cresceu de um modelo para quatro, está fazendo algo certo.\r\n\r\nUm motor V6 de 3,0 litros funciona, combinado com um motor elétrico para potências combinadas de 456 cavalos de potência e 516 lb-pés de torque, o que é suficiente para levar o Bentayga Hybrid a 60 mph em pouco mais de cinco segundos. Esses resultados estão no mesmo nível do Porsche Cayenne E-Hybrid, mas o SUV alemão ganha velocidade muito mais rápido. Também começa com um MSRP que é metade do que o Bentayga Hybrid pede. Atualmente não existem outros concorrentes ultraluxuosos do Bentley Bentayga PHEV, então é provável que aqueles que compram sob a bandeira Flying B já tenham decidido comprar um - e não há muitos motivos, exceto um preço elevado, para dissuadi-los.', '2023 ', 'Automatico', 'Gasolina', 'Verde', '0 ', '963391.jpg', '963389.jpg', '1104653.jpg', '963388.jpg'),
+(7, 'Bentley ', 'Continental GT Speed Convertible', 'esportivo', '2.000.000,00', 'Equipado com o motor 6.0 W12 biturbo usado no Continental GT Speed cupê, ele entrega 620 cv e torque máximo de 81,5 mkgf. Segundo dados fornecidos pela Bentley, o modelo vai de 0 a 100 km/h em 4,1 segundos e chega aos 325 km/h', '2023 ', 'Automatico', 'Gasolina', 'Laranja', '0 ', '895693.jpg', '895684.jpg', '895668.jpg', '895676.jpg'),
+(8, 'BMW', '3XM', 'SUV ', '950.000,00', 'A BMW fabrica excelentes SUVs e atualizou sua popular entrada na classe compacta premium há apenas dois anos, pela última vez, antes que um X3 redesen', '2023 ', 'Automatico', 'Gasolina', 'Azul ', '0 ', '921001.jpg', '920991.jpg', '920989.jpg', '920970.jpg'),
+(9, 'BMW', 'I5', 'Sedan', '700.000,00', 'Já tivemos uma boa sensação depois de passar algum tempo recentemente com o protótipo elétrico da Série 5, e a revelação dos novos BMW Série 5 e gêmeo', '2023 ', 'Automatico', 'Gasolina', 'Branco', '0 ', '1140426.jpg', '1140513.jpg', '1140426.jpg', '1140322.jpg'),
+(10, 'BMW', '3.0 csl', 'esportivo', '4.000.000,00', 'Se você pensava que as comemorações do 50º aniversário da BMW M iriam parar no novo BMW M4 CSL e no M3 Touring, então é hora de ficar agradavelmente s', '2023 ', 'Automatico', 'Gasolina', 'Branco', '0 ', '1067429.jpg', '1067430.jpg', '1067437.jpg', '1067424.jpg'),
+(11, 'BMW', 'XM', 'SUV ', '950.000,00', 'Para surpresa dos fãs do BMW M em todos os lugares, o novo BMW XM SUV chegou aos EUA no ano passado. É apenas o segundo carro M dedicado projetado des', '2023 ', 'Automatico', 'Gasolina', 'Verde', '0 ', '1197398.jpg', '1197399.jpg', '1197397.jpg', '1197406.jpg'),
+(12, 'Ford', 'F-150', 'Picape', '479.990,00 ', 'O Ford F-150 tem sido o caminhão mais vendido nos EUA desde os anos 70 e o veículo mais vendido nos EUA em geral desde os anos 80. É a galinha dos ovo', '2023 ', 'Automatico', 'Diesel', 'Preto', '0 ', '795417.jpg', '795403.jpg', '795364.jpg', '795374.jpg'),
+(13, 'Dodge', 'Ram 1500', 'Picape', '456.990,00', 'Nenhum veículo à venda nos EUA vende em maior número do que a picape de tamanho normal, com o Ford F-150 no primeiro lugar há quase meio século. O F-1', '2023 ', 'Automatico', 'Diesel', 'Preto', '0 ', '869521.jpg', '869522.jpg', '1108019.jpg', '869525.jpg'),
+(14, 'Tesla', 'Model S', 'Eletrico', '830.000,00', 'O Tesla Model S iniciou a mudança em massa de veículos elétricos há mais de uma década, quando foi lançado pela primeira vez nos EUA como modelo de 20', '2023 ', 'Automatico', 'eletrico', 'Vermelho', '0 ', '870418.jpg', '805704.jpg', '805703.jpg', '805715.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `login`
+--
+
+CREATE TABLE `login` (
+  `id_usuario` int(11) UNSIGNED NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Senha` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `login`
+--
+
+INSERT INTO `login` (`id_usuario`, `Email`, `Senha`) VALUES
+(2, 'admin', 'admin');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `login`
+--
+ALTER TABLE `login`
+  MODIFY `id_usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
